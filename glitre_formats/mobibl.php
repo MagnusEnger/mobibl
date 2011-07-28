@@ -62,18 +62,22 @@ function get_basic_info($record) {
     $out = '<li><a class="searchresult" href="#' . $id . '">';
     
     // Title
+    $out .= '<h3>';
     if ($record->getField("245") && $record->getField("245")->getSubfield("a")) {
     	// Remove . at the end of a title
     	$title = preg_replace("/\.$/", "", marctrim($record->getField("245")->getSubfield("a")));
-		$out .= $title;
+		  $out .= $title;
     } else {
     	$out .= '[Uten tittel]';	
     }
     if ($record->getField("245") && $record->getField("245")->getSubfield("b")) {
     	$out .= ' : ' . marctrim($record->getField("245")->getSubfield("b"));
     }
+    $out .= '</h3>';
+    $out .= '<p>';
     if ($record->getField("245") && $record->getField("245")->getSubfield("c")) {
-    	$out .= ' / ' . marctrim($record->getField("245")->getSubfield("c"));
+    	// $out .= ' / ' . marctrim($record->getField("245")->getSubfield("c"));
+    	$out .= marctrim($record->getField("245")->getSubfield("c"));
     }
     // Publication data
     if ($record->getField("260")) {
@@ -82,6 +86,7 @@ function get_basic_info($record) {
     		$out .= ' (' . marctrim($record->getField("260")->getSubfield("c")) . ')';
     	}
     }
+    $out .= '</p>';
     
     $out .= '</a></li>';
    	
