@@ -19,14 +19,15 @@ $lib = mysql_fetch_assoc($libres);
 	<div data-role="content" data-theme="b">	
 	
 	    <div class="content-primary">
-        <form action="search.php" method="get">
+        <form method="get" action="/glitre/api/index.php" id="bib-search">
 		<ul data-role="listview">
             <li data-role="fieldcontain">
 	         	<h2>Søk</h2>
 	         	<input type="search" name="q" id="search" value=""  />
-	         	<input type="hidden" name="lib" value="<?php echo($_GET['bib']) ?>" />
-	          <input type="hidden" name="sorter" value="aar" />
-	          <input type="hidden" name="orden" value="synk" />
+	         	<input type="hidden" name="library" value="<?php echo($_GET['bib']) ?>" />
+	          <input type="hidden" name="sort_by" value="year" />
+	          <input type="hidden" name="sort_order" value="descending" />
+	          <input type="hidden" name="format" value="mobibl" />
 			</li>
 		</ul>
 		</form>
