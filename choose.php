@@ -7,8 +7,6 @@ $dbconfig = get_db_config();
 $db = db_open($dbconfig['host'], $dbconfig['name'], $dbconfig['user'], $dbconfig['pass']);
 $libs = db_execute_query("SELECT id, name FROM libraries ORDER BY name;", $db);
 
-print_r($libs);
-
 ?>
 <div data-role="page" data-title="Velg bibliotek" id="choose" data-theme="b">
 
