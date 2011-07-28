@@ -10,7 +10,11 @@
         <form>
 		<ul data-role="listview">
             <li data-role="fieldcontain">
-	         	<h2>Søk</h2><input type="search" name="q" id="search" value=""  />
+	         	<h2>Søk</h2>
+	         	<input type="search" name="q" id="search" value=""  />
+	         	<input type="hidden" name="lib" value="<?php echo($_GET['bib']) ?>" />
+	          <input type="hidden" name="sorter" value="aar" />
+	          <input type="hidden" name="orden" value="synk" />
 			</li>
 		</ul>
 		</form>
