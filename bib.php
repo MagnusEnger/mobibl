@@ -1,13 +1,25 @@
-<div data-role="page" data-title="Eksempelbibliotek" id="sksk" data-theme="b">
+<?php
+
+include('inc.db.php');
+include('config.php');
+
+$dbconfig = get_db_config();
+$db = db_open($dbconfig['host'], $dbconfig['name'], $dbconfig['user'], $dbconfig['pass']);
+$libres = db_execute_query("SELECT * FROM libraries WHERE id = '" . $_GET['bib'] . "';", $db);
+$lib = mysql_fetch_assoc($libres);
+
+?>
+
+<div data-role="page" data-title="<?php echo($lib['name_short']); ?>" id="<?php echo($lib['id']); ?>" data-theme="b">
 
 	<div data-role="header">
-		<h1>Eksempelbibliotek</h1>
+		<h1><?php echo($lib['name_short']); ?></h1>
 	</div>
 
 	<div data-role="content" data-theme="b">	
 	
 	    <div class="content-primary">
-        <form>
+        <form action="search.php" method="get">
 		<ul data-role="listview">
             <li data-role="fieldcontain">
 	         	<h2>Søk</h2>
