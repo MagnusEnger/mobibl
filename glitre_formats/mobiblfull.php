@@ -21,14 +21,35 @@ along with Glitre.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-function format($records, $num_of_records, $first_record, $last_record) {
+function format_single($records, $num_of_records, $first_record, $last_record) {
 
 	// require('File/MARCXML.php');
 	// $records = new File_MARCXML($marcxml, File_MARC::SOURCE_STRING);
 	
+  $out .= '<div data-role="page" data-title="Post" id="search-result" data-theme="b" data-add-back-btn="true">';
+  $out .= '	<div data-role="header">';
+  $out .= '		<h1>Post</h1>';
+  $out .= '	</div>';
+  $out .= '	<div data-role="content" data-theme="b">';
+  $out .= '	    <div class="content-primary">';
+  // $out .= '<ul id="searchresults" data-role="listview">';
+
 	foreach ($records as $rec) {
 		$out .= get_basic_info($rec);
 	}
+	
+  // $out .= '</ul>';
+  $out .= '	  		</div>';
+  $out .= '	</div>';
+  $out .= '    <div data-role="footer">';
+  $out .= '		<div data-role="navbar" data-grid="a">';
+  $out .= '		    <ul>';
+  $out .= '			    <li><a href="choose.php" id="chat">Velg bibliotek</a></li>';
+  $out .= '			    <li><a href="#about" id="email">Om moBibl</a></li>';
+  $out .= '		    </ul>';
+  $out .= '	    </div>';
+  $out .= '    </div>';
+  $out .= '</div>';
 	
 	$ret = array(
 		'data' => $out, 
@@ -54,8 +75,8 @@ function get_basic_info($record) {
 	
 	$id = md5($_GET['library'] . $bibid);
 
-    $out = '<div id="' . $id . '" class="section">';
-    $out .= '<div class="toolbar">';
+    // $out = '<div id="' . $id . '" class="section">';
+    // $out .= '<div class="toolbar">';
     
     $title = '';
     if ($record->getField("245") && $record->getField("245")->getSubfield("a")) {
@@ -66,11 +87,11 @@ function get_basic_info($record) {
     }
     
 	$out .= '<h1>' . $title . '</h1>';
-	$out .= '<a class="button back" href="#">Tilbake</a>';
-	$out .= '</div>';
-	$out .= '<div>';
+	// $out .= '<a class="button back" href="#">Tilbake</a>';
+	// $out .= '</div>';
+	// $out .= '<div>';
     
-    $out .= '<ul>';
+    $out .= '<ul id="searchresults" data-role="listview">';
     $out .= '<li>Tittel: ' . $title . "</li>\n";
     if ($record->getField("245") && $record->getField("245")->getSubfield("b")) {
     	$out .= '<li>Undertittel: ' . marctrim($record->getField("245")->getSubfield("b")) . "</li>\n";
@@ -98,7 +119,8 @@ function get_basic_info($record) {
     
     // Items
     if ($record->getField("850") && $record->getField("850")->getSubfield("a")) {
-		$out .= '<h2>Eksemplarer:</h2><ul>';
+		$out .= '<h2>Eksemplarer:</h2>';
+		$out .= '<ul data-role="listview">';
 		foreach ($record->getFields("850") as $item) {
 			$out .= '<li>'. marctrim($item->getSubfield("a")) . ', ' . marctrim($item->getSubfield("c")) . '</li>' . "\n";
 		}
@@ -106,7 +128,8 @@ function get_basic_info($record) {
 	}
 	// BIBSYS
         if ($record->getField("852") && $record->getField("852")->getSubfield("a")) {
-		$out .= '<h2>Eksemplarer:</h2><ul>';
+		$out .= '<h2>Eksemplarer:</h2>';
+		$out .= '<ul data-role="listview">';
 		foreach ($record->getFields("852") as $item) {
 			$out .= '<li>'. marctrim($item->getSubfield("a")) . ' ' . marctrim($item->getSubfield("a")) . ' ' . marctrim($item->getSubfield("c")) . '</li>' . "\n";
 		}
@@ -117,7 +140,7 @@ function get_basic_info($record) {
     $notes = $record->getFields('5..', true);
     if ($notes) {
     	$out .= '<h2>Noter</h2>' . "\n";
-    	$out .= '<ul>' . "\n";
+    	$out .= '<ul data-role="listview">' . "\n";
 		foreach ($notes as $field) {
 			if ($field->getSubfield("a")) {
     			$out .= '<li>' . marctrim($field->getSubfield("a")) . "</li>\n";

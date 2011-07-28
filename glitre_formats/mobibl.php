@@ -60,7 +60,7 @@ function get_basic_info($record) {
 	$id = md5($_GET['library'] . $bibid);
 
     // $out = '<li><a class="searchresult" href="#' . $id . '">';
-    $out = '<li><a class="searchresult" href="/glitre/api/index.php?library=' . $_GET['library'] . '&id=' . $bibid . '">';
+    $out = '<li><a class="searchresult" href="/glitre/api/index.php?library=' . $_GET['library'] . '&id=' . $bibid . '&format=mobiblfull">';
     
     // Title
     $out .= '<h3>';
