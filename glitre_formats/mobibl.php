@@ -7,33 +7,33 @@ function format($records, $num_of_records, $first_record, $last_record) {
 	
 	$out = '';
 	$count = 0;
-        if ($first_record == 1) {
-          $out .= '<div data-role="page" data-title="Søkeresultat" id="search-result" data-theme="b">';
-          $out .= '	<div data-role="header">';
-          $out .= '		<h1>Søkeresultat</h1>';
-          $out .= '	</div>';
-          $out .= '	<div data-role="content" data-theme="b">';
-          $out .= '	    <div class="content-primary">';
-          $out .= '<p id="searchcounter">Viser treff 1 til <span id="searchcountto">' . $last_record . '</span> av ';
-          $out .= '<span id="searchcountotal">' . $num_of_records . '</span></p>';
-          $out .= '<ul id="searchresults" data-role="listview">';
-        }
+  if ($first_record == 1) {
+    $out .= '<div data-role="page" data-title="Søkeresultat" id="search-result" data-theme="b">';
+    $out .= '	<div data-role="header">';
+    $out .= '		<h1>Søkeresultat</h1>';
+    $out .= '	</div>';
+    $out .= '	<div data-role="content" data-theme="b">';
+    $out .= '	    <div class="content-primary">';
+    $out .= '<p id="searchcounter">Viser treff 1 til <span id="searchcountto">' . $last_record . '</span> av ';
+    $out .= '<span id="searchcountotal">' . $num_of_records . '</span></p>';
+    $out .= '<ul id="searchresults" data-role="listview">';
+  }
 	foreach ($records as $rec) {
 		$out .= get_basic_info($rec);
 		$count++;
 	}
-    $out .= '</ul>';
-	  $out .= '	  		</div>';
-	  $out .= '	</div>';
-	  $out .= '    <div data-role="footer">';
-	  $out .= '		<div data-role="navbar" data-grid="a">';
-	  $out .= '		    <ul>';
-	  $out .= '			    <li><a href="choose.php" id="chat">Velg bibliotek</a></li>';
-	  $out .= '			    <li><a href="#about" id="email">Om moBibl</a></li>';
-	  $out .= '		    </ul>';
-	  $out .= '	    </div>';
-	  $out .= '    </div>';
-	  $out .= '</div>';
+  $out .= '</ul>';
+  $out .= '	  		</div>';
+  $out .= '	</div>';
+  $out .= '    <div data-role="footer">';
+  $out .= '		<div data-role="navbar" data-grid="a">';
+  $out .= '		    <ul>';
+  $out .= '			    <li><a href="choose.php" id="chat">Velg bibliotek</a></li>';
+  $out .= '			    <li><a href="#about" id="email">Om moBibl</a></li>';
+  $out .= '		    </ul>';
+  $out .= '	    </div>';
+  $out .= '    </div>';
+  $out .= '</div>';
 	
 	$ret = array(
 		'data' => $out, 
@@ -59,7 +59,8 @@ function get_basic_info($record) {
 	
 	$id = md5($_GET['library'] . $bibid);
 
-    $out = '<li><a class="searchresult" href="#' . $id . '">';
+    // $out = '<li><a class="searchresult" href="#' . $id . '">';
+    $out = '<li><a class="searchresult" href="/glitre/api/index.php?library=' . $_GET['library'] . '&id=' . $bibid . '">';
     
     // Title
     $out .= '<h3>';
