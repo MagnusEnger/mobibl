@@ -42,7 +42,8 @@ function format($records, $num_of_records, $first_record, $last_record) {
 		$count++;
 	}
   $out .= '</ul>';
-  $out .= '<p><a href="#" data-role="button" id="show-more-results">Vis flere treff</a></p>';
+  $out .= '<ul id="searchtmp" style=""></ul>';
+  $out .= '<p><a href="#" data-role="button" id="show-more-results" onClick="show_more_results(\'' . $searchid . '\')">Vis flere treff</a></p>';
   $out .= '	</div>';
   $out .= '    <div data-role="footer">';
   $out .= '		<div data-role="navbar" data-grid="a">';
@@ -79,7 +80,7 @@ function get_basic_info($record) {
 	$id = md5($_GET['library'] . $bibid);
 
     // $out = '<li><a class="searchresult" href="#' . $id . '">';
-    $out = '<li><a class="searchresult" href="/glitre/api/index.php?library=' . $_GET['library'] . '&id=' . $bibid . '&format=mobiblfull">';
+    $out = '<li class="searchresult"><a href="/glitre/api/index.php?library=' . $_GET['library'] . '&id=' . $bibid . '&format=mobiblfull">';
     
     // Title
     $out .= '<h3>';
