@@ -19,11 +19,11 @@ $lib = mysql_fetch_assoc($libres);
 	<div data-role="content" data-theme="b">	
 	
     <div class="content-primary">
-    <h2>Søk</h2>
+    <!-- h2>Søk</h2 -->
     <form method="get" action="/glitre/api/index.php" id="bib-search">
 		<ul data-role="listview">
       <li data-role="fieldcontain">
-	      <label for="name">Emne/tittel/forfatter:</label>
+	      <label for="name">Søk etter emne/tittel/forfatter:</label>
 	      <input type="search" name="q" id="search" value=""  />
 			</li>
 		</ul>
