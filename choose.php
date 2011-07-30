@@ -11,6 +11,7 @@ $libs = db_execute_query("SELECT id, name FROM libraries ORDER BY name;", $db);
 <div data-role="page" data-title="Velg bibliotek" id="choose" data-theme="b">
 
 	<div data-role="header">
+	  <a href="#" data-rel="back">Tilbake</a>
 		<h1>Velg bibliotek</h1>
 	</div>
 
@@ -27,8 +28,8 @@ $libs = db_execute_query("SELECT id, name FROM libraries ORDER BY name;", $db);
     <div data-role="footer">
 		<div data-role="navbar" data-grid="a">
 		    <ul>
-			    <li><a href="#choose" id="chat">Velg bibliotek</a></li>
-			    <li><a href="#about" id="email">Om moBibl</a></li>
+			    <li><a href="/choose.php">Velg bibliotek</a></li>
+			    <li><a href="#about">Om moBibl</a></li>
 		    </ul>
 	    </div>
     </div>

@@ -71,8 +71,8 @@ $lib = mysql_fetch_assoc($libres);
     <div data-role="footer">
 		<div data-role="navbar" data-grid="a">
 		    <ul>
-			    <li><a href="choose.php" id="chat">Velg bibliotek</a></li>
-			    <li><a href="#about" id="email">Om moBibl</a></li>
+			    <li><a href="/choose.php">Velg bibliotek</a></li>
+			    <li><a href="#about">Om moBibl</a></li>
 		    </ul>
 	    </div>
     </div>

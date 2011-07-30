@@ -46,8 +46,8 @@ function format($records, $num_of_records, $first_record, $last_record) {
   $out .= '    <div data-role="footer">';
   $out .= '		<div data-role="navbar" data-grid="a">';
   $out .= '		    <ul>';
-  $out .= '			    <li><a href="choose.php" id="chat">Velg bibliotek</a></li>';
-  $out .= '			    <li><a href="#about" id="email">Om moBibl</a></li>';
+  $out .= '			    <li><a href="/choose.php">Velg bibliotek</a></li>';
+  $out .= '			    <li><a href="#about">Om moBibl</a></li>';
   $out .= '		    </ul>';
   $out .= '	    </div>';
   $out .= '    </div>';
