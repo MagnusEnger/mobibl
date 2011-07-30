@@ -1,21 +1,6 @@
 $(document).ready(function(){
 
-	// Perform search
-	$('#bib-search').submit(function() {
-    alert('Handler for .submit() called.');
-    return false;
-  });
-	
 });
-
-function getSearchResults() {
-
-  // Get the query and the code for the library
-  var q = $('#q').val();
-  var library = $.getUrlVar('lib');
-  alert(library + ' ' + q);
-
-}
 
 // Thanks to: http://jquery-howto.blogspot.com/2009/09/get-url-parameters-values-with-jquery.html
 $.extend({

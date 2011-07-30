@@ -42,6 +42,7 @@ function format($records, $num_of_records, $first_record, $last_record) {
 		$count++;
 	}
   $out .= '</ul>';
+  $out .= '<p><a href="#" data-role="button" id="show-more-results">Vis flere treff</a></p>';
   $out .= '	</div>';
   $out .= '    <div data-role="footer">';
   $out .= '		<div data-role="navbar" data-grid="a">';
