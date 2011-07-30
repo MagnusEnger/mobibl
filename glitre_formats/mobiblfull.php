@@ -23,26 +23,8 @@ along with Glitre.  If not, see <http://www.gnu.org/licenses/>.
 
 function format_single($records, $num_of_records, $first_record, $last_record) {
 
-	// require('File/MARCXML.php');
-	// $records = new File_MARCXML($marcxml, File_MARC::SOURCE_STRING);
-	
-	foreach ($records as $rec) {
-		$out .= get_basic_info($rec);
-	}
-	
-  // $out .= '</ul>';
-  $out .= '    </div>';
-  $out .= '	 </div>';
-  $out .= '  <div data-role="footer">';
-  $out .= '	   <div data-role="navbar" data-grid="a">';
-  $out .= '		   <ul>';
-  $out .= '			   <li><a href="choose.php" id="chat">Velg bibliotek</a></li>';
-  $out .= '			   <li><a href="#about" id="email">Om moBibl</a></li>';
-  $out .= '		   </ul>';
-  $out .= '	   </div>';
-  $out .= '  </div>';
-  $out .= '</div>';
-	
+	$out .= get_basic_info($records[0]);
+		
 	$ret = array(
 		'data' => $out, 
 		'content_type' => 'text/html'
@@ -67,16 +49,13 @@ function get_basic_info($record) {
 	
 	$id = md5($_GET['library'] . $bibid);
 
-    // $out = '<div id="' . $id . '" class="section">';
-    // $out .= '<div class="toolbar">';
-    
-    $title = '';
-    if ($record->getField("245") && $record->getField("245")->getSubfield("a")) {
-    	// Remove . at the end of a title
-    	$title = preg_replace("/\.$/", "", marctrim($record->getField("245")->getSubfield("a")));
-    } else {
-    	$title = '[Uten tittel]';	
-    }
+  $title = '';
+  if ($record->getField("245") && $record->getField("245")->getSubfield("a")) {
+  	// Remove . at the end of a title
+  	$title = preg_replace("/\.$/", "", marctrim($record->getField("245")->getSubfield("a")));
+  } else {
+  	$title = '[Uten tittel]';	
+  }
   
   $out .= '<div data-role="page" data-title="' . $title . '" id="' . $id . '" data-theme="b" data-add-back-btn="true">';
   $out .= '  <div data-role="header">';
@@ -85,10 +64,6 @@ function get_basic_info($record) {
   $out .= '  </div>';
   $out .= '	 <div data-role="content" data-theme="b">';
   $out .= '    <div class="content-primary">';
-    
-	// $out .= '<a class="button back" href="#">Tilbake</a>';
-	// $out .= '</div>';
-	// $out .= '<div>';
     
     $out .= '<ul id="searchresults" data-role="listview">';
     $out .= '<li>Tittel: ' . $title . "</li>\n";
@@ -114,7 +89,6 @@ function get_basic_info($record) {
     		$out .= '<li>Sted: ' . marctrim($record->getField("260")->getSubfield("a")) . "</li>\n";
     	}
     }
-    // $out .= '</ul>';
     
     // Items
     if ($record->getField("850") && $record->getField("850")->getSubfield("a")) {
@@ -123,23 +97,19 @@ function get_basic_info($record) {
 		foreach ($record->getFields("850") as $item) {
 			$out .= '<li>'. marctrim($item->getSubfield("a")) . ', ' . marctrim($item->getSubfield("c")) . '</li>' . "\n";
 		}
-		// $out .= '</ul>';
 	}
 	// BIBSYS
         if ($record->getField("852") && $record->getField("852")->getSubfield("a")) {
 		$out .= '<li data-role="list-divider">Eksemplarer:</li>';
-		// $out .= '<ul data-role="listview">';
 		foreach ($record->getFields("852") as $item) {
 			$out .= '<li>'. marctrim($item->getSubfield("a")) . ' ' . marctrim($item->getSubfield("a")) . ' ' . marctrim($item->getSubfield("c")) . '</li>' . "\n";
 		}
-		// $out .= '</ul>';
 	}
     
     // Notes
     $notes = $record->getFields('5..', true);
     if ($notes) {
     	$out .= '<li data-role="list-divider">Noter</li>' . "\n";
-    	// $out .= '<ul data-role="listview">' . "\n";
 		foreach ($notes as $field) {
 			if ($field->getSubfield("a")) {
     			$out .= '<li>' . marctrim($field->getSubfield("a")) . "</li>\n";
@@ -148,11 +118,17 @@ function get_basic_info($record) {
 		$out .= '</ul>' . "\n";
     }
     
-    // $out .= '<p><a style="margin:0 10px;color:rgba(0,0,0,.9)" href="#" class="whiteButton goback">Tilbake</a></p>';
-    
-    // $out .= '<h2>Debug</h2><div class="content"><pre>' . $record->__toString() . '</pre></div>';
-    
-    $out .= '</div></div>';
+    $out .= '    </div>';
+    $out .= '	 </div>';
+    $out .= '  <div data-role="footer">';
+    $out .= '	   <div data-role="navbar" data-grid="a">';
+    $out .= '		   <ul>';
+    $out .= '			   <li><a href="choose.php" id="chat">Velg bibliotek</a></li>';
+    $out .= '			   <li><a href="#about" id="email">Om moBibl</a></li>';
+    $out .= '		   </ul>';
+    $out .= '	   </div>';
+    $out .= '  </div>';
+    $out .= '</div>';
    	
     return $out;
 	
