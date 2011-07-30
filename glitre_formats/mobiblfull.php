@@ -115,32 +115,32 @@ function get_basic_info($record) {
     		$out .= '<li>Sted: ' . marctrim($record->getField("260")->getSubfield("a")) . "</li>\n";
     	}
     }
-    $out .= '</ul>';
+    // $out .= '</ul>';
     
     // Items
     if ($record->getField("850") && $record->getField("850")->getSubfield("a")) {
-		$out .= '<h2>Eksemplarer:</h2>';
-		$out .= '<ul data-role="listview">';
+		$out .= '<li data-role="list-divider">Eksemplarer:</li>';
+		// $out .= '<ul data-role="listview">';
 		foreach ($record->getFields("850") as $item) {
 			$out .= '<li>'. marctrim($item->getSubfield("a")) . ', ' . marctrim($item->getSubfield("c")) . '</li>' . "\n";
 		}
-		$out .= '</ul>';
+		// $out .= '</ul>';
 	}
 	// BIBSYS
         if ($record->getField("852") && $record->getField("852")->getSubfield("a")) {
-		$out .= '<h2>Eksemplarer:</h2>';
-		$out .= '<ul data-role="listview">';
+		$out .= '<li data-role="list-divider">Eksemplarer:</li>';
+		// $out .= '<ul data-role="listview">';
 		foreach ($record->getFields("852") as $item) {
 			$out .= '<li>'. marctrim($item->getSubfield("a")) . ' ' . marctrim($item->getSubfield("a")) . ' ' . marctrim($item->getSubfield("c")) . '</li>' . "\n";
 		}
-		$out .= '</ul>';
+		// $out .= '</ul>';
 	}
     
     // Notes
     $notes = $record->getFields('5..', true);
     if ($notes) {
-    	$out .= '<h2>Noter</h2>' . "\n";
-    	$out .= '<ul data-role="listview">' . "\n";
+    	$out .= '<li data-role="list-divider">Noter</li>' . "\n";
+    	// $out .= '<ul data-role="listview">' . "\n";
 		foreach ($notes as $field) {
 			if ($field->getSubfield("a")) {
     			$out .= '<li>' . marctrim($field->getSubfield("a")) . "</li>\n";
