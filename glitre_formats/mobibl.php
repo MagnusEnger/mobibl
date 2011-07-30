@@ -11,7 +11,7 @@ function format($records, $num_of_records, $first_record, $last_record) {
 	$out = '';
 	$count = 0;
   if ($first_record == 1) {
-    $out .= '<div data-role="page" data-title="Søkeresultat" id="' . $searchid . '" data-theme="b">';
+    $out .= '<div data-role="page" data-title="Søkeresultat" id="' . $searchid . '" class="search-result" data-theme="b">';
     $out .= '	<div data-role="header">';
     $out .= '		<h1>Søkeresultat</h1>';
     $out .= '	</div>';
@@ -25,7 +25,7 @@ function format($records, $num_of_records, $first_record, $last_record) {
 	  $out .= '	    <input type="search" name="q" id="search" value="' . strip_tags(urldecode($_GET['q'])) . '"  />';
 		$out .= '		</li>';
 		$out .= '	</ul>';
-		$out .= '	<input type="hidden" name="library" value="' . $_GET['bib'] . '" />';
+		$out .= '	<input type="hidden" name="library" value="' . $_GET['library'] . '" />';
     $out .= '	<input type="hidden" name="sort_by" value="year" />';
     $out .= '	<input type="hidden" name="sort_order" value="descending" />';
     $out .= '	<input type="hidden" name="format" value="mobibl" />';
