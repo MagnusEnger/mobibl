@@ -42,7 +42,6 @@ function format($records, $num_of_records, $first_record, $last_record) {
 		$count++;
 	}
   $out .= '</ul>';
-  $out .= '	  		</div>';
   $out .= '	</div>';
   $out .= '    <div data-role="footer">';
   $out .= '		<div data-role="navbar" data-grid="a">';
