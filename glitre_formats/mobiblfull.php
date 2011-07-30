@@ -26,14 +26,6 @@ function format_single($records, $num_of_records, $first_record, $last_record) {
 	// require('File/MARCXML.php');
 	// $records = new File_MARCXML($marcxml, File_MARC::SOURCE_STRING);
 	
-  $out .= '<div data-role="page" data-title="Post" id="search-result" data-theme="b" data-add-back-btn="true">';
-  $out .= '  <div data-role="header">';
-  $out .= '    <h1>Post</h1>';
-  $out .= '  </div>';
-  $out .= '	 <div data-role="content" data-theme="b">';
-  $out .= '    <div class="content-primary">';
-  // $out .= '<ul id="searchresults" data-role="listview">';
-
 	foreach ($records as $rec) {
 		$out .= get_basic_info($rec);
 	}
@@ -85,8 +77,15 @@ function get_basic_info($record) {
     } else {
     	$title = '[Uten tittel]';	
     }
+  
+  $out .= '<div data-role="page" data-title="' . $title . '" id="' . $id . '" data-theme="b" data-add-back-btn="true">';
+  $out .= '  <div data-role="header">';
+  $out .= '    <a href="#" data-rel="back">Tilbake</a>';
+  $out .= '    <h1>' . $title . '</h1>';
+  $out .= '  </div>';
+  $out .= '	 <div data-role="content" data-theme="b">';
+  $out .= '    <div class="content-primary">';
     
-	$out .= '<h1>' . $title . '</h1>';
 	// $out .= '<a class="button back" href="#">Tilbake</a>';
 	// $out .= '</div>';
 	// $out .= '<div>';
