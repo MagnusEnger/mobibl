@@ -34,6 +34,17 @@ $lib = mysql_fetch_assoc($libres);
 		</form>
 		</div>
 		
+	  <div class="content-secondary">
+		
+		  <h2>Meny</h2>
+		  <ul data-role="listview" data-inset="true">
+		    <li><a href="">Åpningstider</a>
+		    <li><a href="">Kontakt oss</a>
+		    <li><a href="">Elektroniske ressurser</a>
+		  </ul>
+		
+		</div>
+		
 		<div class="content-secondary">
 		
 		    <h2>Nyheter</h2>
