@@ -27,11 +27,11 @@ function format_single($records, $num_of_records, $first_record, $last_record) {
 	// $records = new File_MARCXML($marcxml, File_MARC::SOURCE_STRING);
 	
   $out .= '<div data-role="page" data-title="Post" id="search-result" data-theme="b" data-add-back-btn="true">';
-  $out .= '	<div data-role="header">';
-  $out .= '		<h1>Post</h1>';
-  $out .= '	</div>';
-  $out .= '	<div data-role="content" data-theme="b">';
-  $out .= '	    <div class="content-primary">';
+  $out .= '  <div data-role="header">';
+  $out .= '    <h1>Post</h1>';
+  $out .= '  </div>';
+  $out .= '	 <div data-role="content" data-theme="b">';
+  $out .= '    <div class="content-primary">';
   // $out .= '<ul id="searchresults" data-role="listview">';
 
 	foreach ($records as $rec) {
@@ -39,16 +39,16 @@ function format_single($records, $num_of_records, $first_record, $last_record) {
 	}
 	
   // $out .= '</ul>';
-  $out .= '	  		</div>';
-  $out .= '	</div>';
-  $out .= '    <div data-role="footer">';
-  $out .= '		<div data-role="navbar" data-grid="a">';
-  $out .= '		    <ul>';
-  $out .= '			    <li><a href="choose.php" id="chat">Velg bibliotek</a></li>';
-  $out .= '			    <li><a href="#about" id="email">Om moBibl</a></li>';
-  $out .= '		    </ul>';
-  $out .= '	    </div>';
   $out .= '    </div>';
+  $out .= '	 </div>';
+  $out .= '  <div data-role="footer">';
+  $out .= '	   <div data-role="navbar" data-grid="a">';
+  $out .= '		   <ul>';
+  $out .= '			   <li><a href="choose.php" id="chat">Velg bibliotek</a></li>';
+  $out .= '			   <li><a href="#about" id="email">Om moBibl</a></li>';
+  $out .= '		   </ul>';
+  $out .= '	   </div>';
+  $out .= '  </div>';
   $out .= '</div>';
 	
 	$ret = array(
