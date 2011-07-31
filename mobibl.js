@@ -13,7 +13,7 @@ function show_more_results(searchid) {
   // Display progress indicator
   $.mobile.showPageLoadingMsg()
 
-  // FIXME Make one call to getUrlVars
+  // FIXME Make one call to getUrlVars or $.mobile.path.parseUrl
   var q           = $.getUrlVar('q');
   var library     = $.getUrlVar('library');
   var sort_by     = $.getUrlVar('sort_by');
@@ -32,7 +32,7 @@ function show_more_results(searchid) {
   // TODO Use jQuery.param? 
   var url = '/glitre/api/index.php?q=' + q + '&library=' + library + '&sort_by=' + sort_by + '&sort_order=' + sort_order + '&format=' + format + '&page=' + nextpage;
   
-  // searchresults
+  // Fetch the actual data
   $('#searchtmp').load(url + ' .searchresult', function(response, status, xhr) {
     if (status == "error") {
       alert("Error! " + xhr.status + " " + xhr.statusText);
