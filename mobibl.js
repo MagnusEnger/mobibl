@@ -5,6 +5,10 @@ $(document).bind("mobileinit", function(){
     pageLoadErrorMessage: "Kunne ikke vise side"
   });
   
+  $('.clickme').live('tap', function() {
+    show_more_results();
+  });
+  
 });
 
 
