@@ -21,12 +21,12 @@ function show_more_results(searchid) {
   var format      = $.getUrlVar('format');
   
   // Set default for nextpage
-  if ($('#' + searchid).data('nextpage') == undefined) {
-    $('#' + searchid).data('nextpage', 1);
+  if ($('#' + searchid).jqmData('nextpage') == undefined) {
+    $('#' + searchid).jqmData('nextpage', 1);
   }
   
   // Get the value of nextpage
-  var nextpage = $('#' + searchid).data('nextpage');
+  var nextpage = $('#' + searchid).jqmData('nextpage');
   
   // Construct url
   // TODO Use jQuery.param? 
@@ -43,7 +43,7 @@ function show_more_results(searchid) {
       $('#searchresults').listview("refresh");
       // alert('moved');
       // Increment the nextpage counter
-      $('#' + searchid).data('nextpage', nextpage+1);
+      $('#' + searchid).jqmData('nextpage', nextpage+1);
     }
   });
   
