@@ -1,10 +1,17 @@
-$(document).ready(function(){
-
+$(document).bind("mobileinit", function(){
+  
+  $.extend(  $.mobile , {
+    loadingMessage: "Laster inn...", 
+    pageLoadErrorMessage: "Kunne ikke vise side"
+  });
+  
 });
+
 
 function show_more_results(searchid) {
 
-  // TODO Display progress indicator
+  // Display progress indicator
+  $.mobile.showPageLoadingMsg()
 
   // FIXME Make one call to getUrlVars
   var q           = $.getUrlVar('q');
@@ -40,7 +47,8 @@ function show_more_results(searchid) {
     }
   });
   
-  // TODO Hide progress indicator
+  // Hide progress indicator
+  $.mobile.hidePageLoadingMsg()
 
 }
 
