@@ -43,7 +43,7 @@ function format($records, $num_of_records, $first_record, $last_record) {
 	}
   $out .= '</ul>';
   $out .= '<ul id="searchtmp" style=""></ul>';
-  $out .= '<p><a href="#" data-role="button" data-icon="plus" id="show-more-results" onClick="show_more_results(\'' . $searchid . '\')">Vis flere treff</a></p>';
+  $out .= '<p><a href="#" data-role="button" data-icon="plus" id="show-more-results">Vis flere treff</a></p>';
   $out .= '	</div>';
   $out .= '    <div data-role="footer">';
   $out .= '		<div data-role="navbar" data-grid="a">';
