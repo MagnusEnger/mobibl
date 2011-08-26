@@ -45,7 +45,9 @@ function show_more_results(searchid) {
       // Move items from temporary location
       $('#searchtmp li').appendTo('#searchresults');
       $('#searchresults').listview("refresh");
-      // TODO Update "from x to y of z"
+      // Update "from x to y of z"
+      // Not quite sure why we have to subtract 1?
+      $('#searchcountto').html($('#searchresults li').size() - 1);
       // Increment the nextpage counter
       $('#' + searchid).jqmData('nextpage', nextpage+1);
     }
