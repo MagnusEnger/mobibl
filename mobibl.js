@@ -36,23 +36,6 @@ function show_more_results(searchid) {
   // TODO Use jQuery.param? 
   var url = '/glitre/api/index.php?q=' + q + '&library=' + library + '&sort_by=' + sort_by + '&sort_order=' + sort_order + '&format=' + format + '&page=' + nextpage;
   
-  /*
-  // Fetch the actual data
-  $('#searchtmp').load(url + ' .searchresult', function(response, status, xhr) {
-    if (status == "error") {
-      alert("Error! " + xhr.status + " " + xhr.statusText);
-    } else if (status == "success") {
-      // alert('Data loaded!')
-      // Move items from temporary location
-      $('#searchtmp li').appendTo('#searchresults');
-      $('#searchresults').listview("refresh");
-      // alert('moved');
-      // Increment the nextpage counter
-      $('#' + searchid).jqmData('nextpage', nextpage+1);
-    }
-  });
-  */
-  
   // Fetch the actual data
   $('#searchtmp').load(url + ' .searchresult', function(response, status, xhr) {
     if (status == "error") {
