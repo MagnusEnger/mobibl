@@ -35,7 +35,7 @@ function format($records, $num_of_records, $first_record, $last_record) {
     $out .= '	    <div class="content-primary">';
     $out .= '<ul id="searchresults" data-role="listview">';
     $out .= '<li data-role="list-divider" id="searchcounter">Viser treff 1 til <span id="searchcountto">' . $last_record . '</span> av ';
-    $out .= '<span id="searchcountotal">' . $num_of_records . '</span> for "' . strip_tags(urldecode($_GET['q'])) . '"</li>';
+    $out .= '<span id="searchcounttotal">' . $num_of_records . '</span> for "' . strip_tags(urldecode($_GET['q'])) . '"</li>';
   }
 	foreach ($records as $rec) {
 		$out .= get_basic_info($rec);
