@@ -95,7 +95,7 @@ function get_basic_info($record) {
 		$out .= '<li data-role="list-divider">Eksemplarer:</li>';
 		// $out .= '<ul data-role="listview">';
 		foreach ($record->getFields("850") as $item) {
-			$out .= '<li>'. marctrim($item->getSubfield("a")) . ', ' . marctrim($item->getSubfield("c")) . '</li>' . "\n";
+			$out .= '<li>'. marctrim($item->getSubfield("a")) . ', ' . marctrim($item->getSubfield("b")) . ', ' . marctrim($item->getSubfield("c")) . '</li>' . "\n";
 		}
 	}
 	// BIBSYS
@@ -117,7 +117,12 @@ function get_basic_info($record) {
 		}
 		$out .= '</ul>' . "\n";
     }
-    
+
+    // Debug
+    if ($config['debug']) {
+      $out .= '<h2>Debug</h2><pre>' . $record->__toString() . '</pre>';
+    }
+     
     $out .= '    </div>';
     $out .= '	 </div>';
     $out .= '  <div data-role="footer">';
