@@ -13,6 +13,7 @@ function format($records, $num_of_records, $first_record, $last_record) {
   if ($first_record == 1) {
     $out .= '<div data-role="page" data-title="Søkeresultat" id="' . $searchid . '" class="search-result" data-theme="b">';
     $out .= '	<div data-role="header">';
+    $out .= '    <a href="/#/bib.php?bib=' . $_GET['library'] . '">Hjem</a>';
     $out .= '		<h1>Søkeresultat</h1>';
     $out .= '	</div>';
     $out .= '	<div data-role="content" data-theme="b">';
